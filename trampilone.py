@@ -216,10 +216,6 @@ class SocksProxy(StreamRequestHandler):
                     break
 
 if __name__ == "__main__":
-
-    
-
-
     if "try_fork" in config:
         TRY_TO_FORK = config['try_fork']
     
@@ -251,9 +247,7 @@ if __name__ == "__main__":
     while True:
 
         try:
-            # host='0.0.0.0'
-            # port=8090
-
+          
             sockserver = ThreadingTCPServer((host, port), SocksProxy, bind_and_activate=False)
             sockserver.allow_reuse_address == True
             sockserver.server_bind()
@@ -262,10 +256,11 @@ if __name__ == "__main__":
             sockserver.serve_forever()
             
         except OSError as e:
-            # logger.exception("Unable to listen on port",exc_info=e)
             if "random_port" in config and config['random_port']:
                 port = port + 1
 
             logger.debug("[+] Redirect port is True. Trying port : {0}".format(port))
             continue
+        except:
+            raise
 
