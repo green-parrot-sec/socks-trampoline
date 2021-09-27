@@ -1,0 +1,15 @@
+{
+    "host" : "0.0.0.0",
+    "port" : 8090,
+    "username" : "username",
+    "password" : "password",
+    "redirect_host" : "127.0.0.1",
+    "redirect_port" : 8050,
+    "try_fork" : false,
+    "commands" : [
+        "echo \"hello\"",
+        "echo \" world\""
+
+    ],
+    "random_port" : true
+}
